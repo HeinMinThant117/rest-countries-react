@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 1rem;
+  background: white;
+  font-size: 1.25em;
+  box-shadow: 0px 5px 5px 1px hsl(0, 0%, 90%);
+}
+
+.theme-container {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.theme-container p {
+  font-size: 0.9em;
+  margin-left: 10px;
+}
+
+.theme-container .dark-icon {
+  transform: rotate(-25deg);
+}
