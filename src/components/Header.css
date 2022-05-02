@@ -24,6 +24,12 @@
   transform: rotate(-25deg);
 }
 
+@media only screen and (min-width: 768px) {
+    .container {
+        font-size: 1.1em;
+    }
+}
+
 @media only screen and (min-width: 1440px) {
   .container {
     padding: 2rem 4rem;
