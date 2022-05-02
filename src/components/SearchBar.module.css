@@ -1,0 +1,28 @@
+.container {
+  background: white;
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+  padding: 0.5rem 2rem;
+  color: hsl(0, 0%, 75%);
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px 1px hsl(0, 0%, 90%);
+}
+
+.container input {
+  margin-left: 1rem;
+  font-size: 0.9em;
+  padding: 0.5rem;
+  border: none;
+}
+
+.container input::placeholder {
+  color: hsl(0, 0%, 85%);
+  font-weight: 600;
+}
+
+@media only screen and (min-width: 768px) {
+  .container {
+    width: 30%;
+  }
+}
