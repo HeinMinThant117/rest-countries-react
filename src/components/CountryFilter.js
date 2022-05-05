@@ -5,20 +5,26 @@ import styles from "./CountryFilter.module.css";
 
 const CountryFilter = () => {
   const [showModal, setShowModal] = useState(false);
+  console.log(showModal);
 
   return (
     <div className={styles["filter-container"]}>
-      <div className={styles["filter-button"]}>
+      <div
+        className={styles["filter-button"]}
+        onClick={() => setShowModal(!showModal)}
+      >
         <p>Filter by Region</p>
         <FontAwesomeIcon icon={faAngleDown} />
       </div>
-      <ul className={styles["filter-modal"] + " poggers"}>
-        <li>Africa</li>
-        <li>America</li>
-        <li>Asia</li>
-        <li>Europe</li>
-        <li>Oceania</li>
-      </ul>
+      {showModal && (
+        <ul className={styles["filter-modal"] + " poggers"}>
+          <li>Africa</li>
+          <li>America</li>
+          <li>Asia</li>
+          <li>Europe</li>
+          <li>Oceania</li>
+        </ul>
+      )}
     </div>
   );
 };

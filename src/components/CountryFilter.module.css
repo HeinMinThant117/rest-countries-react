@@ -1,3 +1,7 @@
+.filter-container {
+  user-select: none;
+}
+
 .filter-button {
   display: flex;
   align-items: center;
