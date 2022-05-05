@@ -1,13 +1,35 @@
-.container {
+.filter-button {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 180px;
+  cursor: pointer;
   border-radius: 5px;
   background: white;
   padding: 1rem;
-  font-size: 0.9em;
   font-weight: 600;
   box-shadow: 0px 2px 5px 1px hsl(0, 0%, 90%);
   margin-top: 2rem;
+}
+
+.filter-modal {
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px 1px hsl(0, 0%, 90%);
+  position: absolute;
+  margin-top: 10px;
+  padding: 1rem;
+  width: 180px;
+  list-style: none;
+}
+
+.filter-modal li {
+  color: black;
+  font-weight: 600;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.filter-modal li:hover {
+  color: grey;
 }
