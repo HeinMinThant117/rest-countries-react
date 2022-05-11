@@ -1,5 +1,5 @@
-.main-container {
-  padding: 0 10px;
+.search-filter-container {
+  padding: 0 1rem;
 }
 
 @media only screen and (min-width: 768px) {

@@ -5,7 +5,6 @@ import styles from "./CountryFilter.module.css";
 
 const CountryFilter = () => {
   const [showModal, setShowModal] = useState(false);
-  console.log(showModal);
 
   return (
     <div className={styles["filter-container"]}>

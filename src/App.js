@@ -1,5 +1,6 @@
 import "./App.css";
 import CountryFilter from "./components/CountryFilter";
+import CountryList from "./components/CountryList";
 import Header from "./components/Header";
 import SearchBar from "./components/SearchBar";
 
@@ -12,6 +13,7 @@ const App = () => {
           <SearchBar />
           <CountryFilter />
         </div>
+        <CountryList />
       </main>
     </div>
   );
