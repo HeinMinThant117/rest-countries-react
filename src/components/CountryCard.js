@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./CountryCard.module.css";
+import { formatPopulation } from "../utils";
 
 const CountryCard = ({ country }) => {
   return (
@@ -10,7 +11,7 @@ const CountryCard = ({ country }) => {
       <div className={styles.infoContainer}>
         <h3>{country.name.common}</h3>
         <p>
-          <span>Population: </span> {country.population}
+          <span>Population: </span> {formatPopulation(country.population)}
         </p>
         <p>
           <span>Region: </span> {country.region}
