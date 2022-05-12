@@ -1,20 +1,23 @@
 import React from "react";
 import styles from "./CountryCard.module.css";
 
-const CountryCard = () => {
+const CountryCard = ({ country }) => {
   return (
     <div className={styles.container}>
-      <img src={require("../assets/pe.png")} />
+      <div className={styles.imgContainer}>
+        <img src={country.flags.png} />
+      </div>
       <div className={styles.infoContainer}>
-        <h3>Germany</h3>
+        <h3>{country.name.common}</h3>
         <p>
-          <span>Population: </span> 81,770,900
+          <span>Population: </span> {country.population}
         </p>
         <p>
-          <span>Region: </span> Europe
+          <span>Region: </span> {country.region}
         </p>
         <p>
-          <span>Capital: </span> Berlin
+          <span>Capital: </span>
+          {country.capital || "No Capital"}
         </p>
       </div>
       <div></div>
