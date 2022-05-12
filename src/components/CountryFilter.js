@@ -3,7 +3,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import styles from "./CountryFilter.module.css";
 
-const CountryFilter = () => {
+const countries = [
+  "Africa",
+  "Americas",
+  "Asia",
+  "Europe",
+  "Oceania",
+  "Antartica",
+];
+
+const CountryFilter = ({ handleFilterChange, filter }) => {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -12,17 +21,16 @@ const CountryFilter = () => {
         className={styles["filter-button"]}
         onClick={() => setShowModal(!showModal)}
       >
-        <p>Filter by Region</p>
+        <p>{filter ? filter : "Filter By Region"}</p>
         <FontAwesomeIcon icon={faAngleDown} />
       </div>
       {showModal && (
-        <ul className={styles["filter-modal"] + " poggers"}>
-          <li>Africa</li>
-          <li>Americas</li>
-          <li>Asia</li>
-          <li>Europe</li>
-          <li>Oceania</li>
-          <li>Antartic</li>
+        <ul className={styles["filter-modal"]}>
+          {countries.map((country, index) => (
+            <li onClick={handleFilterChange} key={index}>
+              {country}
+            </li>
+          ))}
         </ul>
       )}
     </div>

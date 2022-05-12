@@ -1,13 +1,13 @@
-import axios from "axios";
-import React, { useEffect, useMemo, useState } from "react";
+import React from "react";
 import CountryCard from "./CountryCard";
 import styles from "./CountryList.module.css";
 
-const CountryList = ({ search, countries }) => {
+const CountryList = ({ search, filter, countries }) => {
   return (
     <div className={styles.container}>
       {countries
         .filter((country) => new RegExp(search, "i").test(country.name.common))
+        .filter((country) => new RegExp(filter, "i").test(country.region))
         .map((country, index) => (
           <CountryCard key={index} country={country} />
         ))}
