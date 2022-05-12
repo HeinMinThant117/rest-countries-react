@@ -1,0 +1,32 @@
+.container {
+  background: white;
+  width: 75%;
+  margin: 1rem auto;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px 1px hsl(0, 0%, 90%);
+}
+
+.container img {
+  width: 100%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.infoContainer {
+  padding: 0 1.5rem;
+  padding-bottom: 2rem;
+}
+
+.infoContainer h3 {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.infoContainer p {
+  margin-bottom: 0.25rem;
+}
+
+.infoContainer span {
+  font-weight: 600;
+}

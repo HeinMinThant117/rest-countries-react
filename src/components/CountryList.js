@@ -1,9 +1,13 @@
 import React from "react";
 import CountryCard from "./CountryCard";
+import styles from "./CountryList.module.css";
 
 const CountryList = () => {
   return (
-    <div>
+    <div className={styles.container}>
+      <CountryCard />
+      <CountryCard />
+      <CountryCard />
       <CountryCard />
     </div>
   );
