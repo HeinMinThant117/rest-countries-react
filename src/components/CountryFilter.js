@@ -18,10 +18,11 @@ const CountryFilter = () => {
       {showModal && (
         <ul className={styles["filter-modal"] + " poggers"}>
           <li>Africa</li>
-          <li>America</li>
+          <li>Americas</li>
           <li>Asia</li>
           <li>Europe</li>
           <li>Oceania</li>
+          <li>Antartic</li>
         </ul>
       )}
     </div>
