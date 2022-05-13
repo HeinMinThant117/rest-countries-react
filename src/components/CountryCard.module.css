@@ -5,6 +5,9 @@
   width: 280px;
   height: 360px;
   box-shadow: 0px 2px 5px 1px hsl(0, 0%, 90%);
+  cursor: pointer;
+  color: black;
+  text-decoration: none;
 }
 
 .imgContainer {

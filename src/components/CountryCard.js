@@ -1,10 +1,11 @@
 import React from "react";
 import styles from "./CountryCard.module.css";
 import { formatPopulation } from "../utils";
+import { Link } from "react-router-dom";
 
 const CountryCard = ({ country }) => {
   return (
-    <div className={styles.container}>
+    <Link to={`/${country.cca2}`} className={styles.container}>
       <div className={styles.imgContainer}>
         <img src={country.flags.png} />
       </div>
@@ -22,7 +23,7 @@ const CountryCard = ({ country }) => {
         </p>
       </div>
       <div></div>
-    </div>
+    </Link>
   );
 };
 
