@@ -30,7 +30,6 @@ const App = () => {
 
   return (
     <div>
-      <Header />
       <main className="main-container">
         <div className="search-filter-container">
           <SearchBar handleSearchChange={handleSearchChange} />

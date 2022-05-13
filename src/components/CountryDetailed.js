@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { formatPopulation } from "../utils";
+import styles from "./CountryDetailed.module.css";
 
 const CountryDetailed = () => {
   const { countryName } = useParams();
@@ -16,7 +17,7 @@ const CountryDetailed = () => {
   if (!country) return null;
 
   return (
-    <div>
+    <div className={styles.container}>
       <Link to="/">Back</Link>
       <div>
         <img src={country.flags.png} />
