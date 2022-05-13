@@ -1,8 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { formatPopulation } from "../utils";
+import { addCommas, formatPopulation } from "../utils";
 import styles from "./CountryDetailed.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 const CountryDetailed = () => {
   const { countryName } = useParams();
@@ -18,52 +20,64 @@ const CountryDetailed = () => {
 
   return (
     <div className={styles.container}>
-      <Link to="/">Back</Link>
-      <div>
+      <Link to="/" className={styles.btnBack}>
+        <FontAwesomeIcon icon={faArrowLeft} />
+        <span>Back</span>
+      </Link>
+      <div className={styles.imgContainer}>
         <img src={country.flags.png} />
       </div>
       <h3>{country.name.common}</h3>
-      <p>
-        <span>Native Name: </span>
-        {
-          country.name.nativeName[Object.keys(country.name.nativeName)[0]]
-            .official
-        }
-      </p>
-      <p>
-        <span>Population: </span>
-        {formatPopulation(country.population)}
-      </p>
-      <p>
-        <span>Region: </span>
-        {country.region}
-      </p>
-      <p>
-        <span>Sub Region: </span>
-        {country.subregion}
-      </p>
-      <p>
-        <span>Capital: </span>
-        {country.capital}
-      </p>
-      <p>
-        <span>Top Level Domain: </span>
-        {country.tld[0]}
-      </p>
-      <p>
-        <span>Currencies: </span>
-        {Object.keys(country.currencies).map(
-          (currency) => country.currencies[currency].name
-        )}
-      </p>
-      <p>
-        <span>Languages: </span>
-        {Object.keys(country.languages).map(
-          (language) => country.languages[language]
-        )}
-      </p>
-      <div>
-        <p>Border Countries</p>
+      <div className={styles.infoContainer}>
+        <div className={styles.infoSection}>
+          <p>
+            <span>Native Name: </span>
+            {
+              country.name.nativeName[Object.keys(country.name.nativeName)[0]]
+                .official
+            }
+          </p>
+          <p>
+            <span>Population: </span>
+            {formatPopulation(country.population)}
+          </p>
+          <p>
+            <span>Region: </span>
+            {country.region}
+          </p>
+          <p>
+            <span>Sub Region: </span>
+            {country.subregion}
+          </p>
+          <p>
+            <span>Capital: </span>
+            {country.capital}
+          </p>
+        </div>
+        <div className={styles.infoSection}>
+          <p>
+            <span>Top Level Domain: </span>
+            {country.tld[0]}
+          </p>
+          <p>
+            <span>Currencies: </span>
+            {Object.keys(country.currencies).map(
+              (currency) => country.currencies[currency].name
+            )}
+          </p>
+          <p>
+            <span>Languages: </span>
+            {addCommas(Object.values(country.languages))}
+          </p>
+        </div>
+      </div>
+      <div className={styles.borderContainer}>
+        <p>Border Countries:</p>
+        <div className={styles.borderCountriesContainer}>
+          <div className={styles.borderCountry}>France</div>
+          <div className={styles.borderCountry}>Germany</div>
+          <div className={styles.borderCountry}>Netherlands</div>
+        </div>
       </div>
     </div>
   );
