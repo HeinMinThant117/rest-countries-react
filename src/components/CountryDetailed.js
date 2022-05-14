@@ -20,15 +20,17 @@ const CountryDetailed = () => {
 
   return (
     <div className={styles.container}>
-      <Link to="/" className={styles.btnBack}>
-        <FontAwesomeIcon icon={faArrowLeft} />
-        <span>Back</span>
-      </Link>
+      <div className={styles.backContainer}>
+        <Link to="/" className={styles.btnBack}>
+          <FontAwesomeIcon icon={faArrowLeft} />
+          <span>Back</span>
+        </Link>
+      </div>
       <div className={styles.imgContainer}>
         <img src={country.flags.png} />
       </div>
-      <h3>{country.name.common}</h3>
       <div className={styles.infoContainer}>
+        <h3>{country.name.common}</h3>
         <div className={styles.infoSection}>
           <p>
             <span>Native Name: </span>
@@ -70,13 +72,13 @@ const CountryDetailed = () => {
             {addCommas(Object.values(country.languages))}
           </p>
         </div>
-      </div>
-      <div className={styles.borderContainer}>
-        <p>Border Countries:</p>
-        <div className={styles.borderCountriesContainer}>
-          <div className={styles.borderCountry}>France</div>
-          <div className={styles.borderCountry}>Germany</div>
-          <div className={styles.borderCountry}>Netherlands</div>
+        <div className={styles.borderContainer}>
+          <p>Border Countries:</p>
+          <div className={styles.borderCountriesContainer}>
+            <div className={styles.borderCountry}>France</div>
+            <div className={styles.borderCountry}>Germany</div>
+            <div className={styles.borderCountry}>Netherlands</div>
+          </div>
         </div>
       </div>
     </div>

@@ -1,5 +1,6 @@
 .container {
   padding: 0 2rem;
+  display: grid;
 }
 
 .btnBack {
@@ -68,7 +69,40 @@
   font-size: 0.9em;
   border-radius: 2.5px;
   margin-right: 0.5rem;
+  margin-bottom: 1rem;
 }
 
-/* .container p { */
-/* } */
+@media only screen and (min-width: 900px) {
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+  }
+
+  .backContainer {
+    grid-column: 1 / -1;
+  }
+
+  .imgContainer {
+    width: 80%;
+  }
+
+  .infoContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 6rem;
+  }
+
+  .infoContainer h3 {
+    grid-column: 1 / -1;
+  }
+
+  .borderContainer {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+  }
+
+  .borderContainer p {
+    margin-right: 1rem;
+  }
+}
