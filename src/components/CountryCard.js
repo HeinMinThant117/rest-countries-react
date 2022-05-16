@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const CountryCard = ({ country }) => {
   return (
-    <Link to={`/${country.cca2}`} className={styles.container}>
+    <Link to={`/${country.name.common}`} className={styles.container}>
       <div className={styles.imgContainer}>
         <img src={country.flags.png} />
       </div>

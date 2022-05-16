@@ -26,17 +26,19 @@ const CountryDetailed = () => {
       let borders = country.borders;
       let borderPromises = [];
 
-      for (let i = 0; i < borders.length; i++) {
-        let borderPromise = axios.get(
-          `https://restcountries.com/v3.1/alpha/${borders[i]}?fields=name`
+      if (borders) {
+        for (let i = 0; i < borders.length; i++) {
+          let borderPromise = axios.get(
+            `https://restcountries.com/v3.1/alpha/${borders[i]}?fields=name`
+          );
+
+          borderPromises.push(borderPromise);
+        }
+
+        Promise.all(borderPromises).then((values) =>
+          setBorders(values.map((value) => value.data.name.common))
         );
-
-        borderPromises.push(borderPromise);
       }
-
-      Promise.all(borderPromises).then((values) =>
-        setBorders(values.map((value) => value.data.name.common))
-      );
     }
   }, [country]);
 
