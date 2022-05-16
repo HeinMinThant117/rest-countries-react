@@ -75,9 +75,18 @@ const CountryDetailed = () => {
         <div className={styles.borderContainer}>
           <p>Border Countries:</p>
           <div className={styles.borderCountriesContainer}>
-            <div className={styles.borderCountry}>France</div>
-            <div className={styles.borderCountry}>Germany</div>
-            <div className={styles.borderCountry}>Netherlands</div>
+            {country.borders.map((border, index) => (
+              <Link
+                to={`/${border}`}
+                key={index}
+                className={styles.borderCountry}
+              >
+                {border}
+              </Link>
+            ))}
+            {/* <div className={styles.borderCountry}>France</div> */}
+            {/* <div className={styles.borderCountry}>Germany</div> */}
+            {/* <div className={styles.borderCountry}>Netherlands</div> */}
           </div>
         </div>
       </div>
