@@ -9,12 +9,37 @@ import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 const CountryDetailed = () => {
   const { countryName } = useParams();
   const [country, setCountry] = useState(null);
+  const [borders, setBorders] = useState([]);
 
   useEffect(() => {
-    axios
-      .get(`https://restcountries.com/v3.1/alpha/${countryName}`)
-      .then((response) => setCountry(response.data[0]));
-  }, [countryName]);
+    if (countryName) {
+      axios
+        .get(`https://restcountries.com/v3.1/alpha/${countryName}`)
+        .then((response) => {
+          setCountry(response.data[0]);
+        });
+    }
+  }, []);
+
+  useEffect(() => {
+    if (country) {
+      let borders = country.borders;
+      let borderPromises = [];
+
+      for (let i = 0; i < borders.length; i++) {
+        let borderPromise = axios.get(
+          `https://restcountries.com/v3.1/alpha/${borders[i]}?fields=name`
+        );
+
+        borderPromises.push(borderPromise);
+      }
+
+      let borderNames = [];
+      Promise.all(borderPromises).then((values) =>
+        setBorders(values.map((value) => value.data.name.common))
+      );
+    }
+  }, [country]);
 
   if (!country) return null;
 
@@ -75,7 +100,7 @@ const CountryDetailed = () => {
         <div className={styles.borderContainer}>
           <p>Border Countries:</p>
           <div className={styles.borderCountriesContainer}>
-            {country.borders.map((border, index) => (
+            {borders.map((border, index) => (
               <Link
                 to={`/${border}`}
                 key={index}
