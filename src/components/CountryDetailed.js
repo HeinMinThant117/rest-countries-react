@@ -14,12 +14,12 @@ const CountryDetailed = () => {
   useEffect(() => {
     if (countryName) {
       axios
-        .get(`https://restcountries.com/v3.1/alpha/${countryName}`)
+        .get(`https://restcountries.com/v3.1/name/${countryName}`)
         .then((response) => {
           setCountry(response.data[0]);
         });
     }
-  }, []);
+  }, [countryName]);
 
   useEffect(() => {
     if (country) {
@@ -34,7 +34,6 @@ const CountryDetailed = () => {
         borderPromises.push(borderPromise);
       }
 
-      let borderNames = [];
       Promise.all(borderPromises).then((values) =>
         setBorders(values.map((value) => value.data.name.common))
       );
